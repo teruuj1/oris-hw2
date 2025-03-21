@@ -18,8 +18,8 @@ public class ApiController {
     private static final String EXTERNAL_API_URL = "https://jsonplaceholder.typicode.com/posts";
 
 
-    @PostMapping("/create")
-    public ResponseEntity<String> createPost(@RequestBody String body) {
+    @PostMapping("/post")
+    public ResponseEntity<String> post(@RequestBody String body) {
         try {
             URL url = new URL(EXTERNAL_API_URL);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -43,8 +43,8 @@ public class ApiController {
         }
     }
 
-    @GetMapping("/read/{id}")
-    public ResponseEntity<String> readPost(@PathVariable int id) {
+    @GetMapping("/get/{id}")
+    public ResponseEntity<String> get(@PathVariable int id) {
         try {
             URL url = new URL(EXTERNAL_API_URL + "/" + id);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -68,8 +68,8 @@ public class ApiController {
         }
     }
 
-    @PutMapping("/update/{id}")
-    public ResponseEntity<String> updatePost(@PathVariable int id, @RequestBody String body) {
+    @PutMapping("/put/{id}")
+    public ResponseEntity<String> put(@PathVariable int id, @RequestBody String body) {
         try {
             URL url = new URL(EXTERNAL_API_URL + "/" + id);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -94,7 +94,7 @@ public class ApiController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<String> deletePost(@PathVariable int id) {
+    public ResponseEntity<String> delete(@PathVariable int id) {
         try {
             URL url = new URL(EXTERNAL_API_URL + "/" + id);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
